@@ -10,7 +10,6 @@ import AppCalendar from "./pages/calendar";
 import AppNotes from "./pages/notes";
 import AppProfile from "./pages/profile";
 import AppPrices from "./pages/prices";
-
 const { Content, Footer } = Layout;
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
     <BrowserRouter>
       <AppHeader />
       <Layout className="mainLayout">
-        <Content>
+        <Content className="page-container">
           <Routes>
             <Route exact path="/dashboard" element={<AppDashboard />} />
             <Route exact path="/prices" element={<AppPrices/>} />

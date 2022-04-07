@@ -1,10 +1,11 @@
 import React from 'react';
+import AddToPortfolio from '../components/addToPortfolio';
 
 const AppPortfolio = () => {
   return (
-    <div>
-      <h1>Portfolio działa</h1>
-    </div>
+    <>
+      <AddToPortfolio/>
+    </>
   );
 };
 

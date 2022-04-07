@@ -1,14 +1,16 @@
 @import '~antd/dist/antd.less';
 
-.container-fluid {
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 15px;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .mainLayout   {
+  display: flex;
+  justify-content: center;
   background: #f8f8f8;
-  padding: 0;
+  padding: 0 150px;
   height: auto;
   line-height: 1.6;
 }
@@ -26,6 +28,67 @@
 
   ul {
     background: #f8f8f8;
+  }
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+}
+
+.coin-name {
+  font-weight: 700;
+}
+
+.symbol {
+  text-transform: uppercase;
+}
+
+.percentage24hColorGreen {
+  color:rgb(37, 216, 37);
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  width: 250px;
+  margin: 10px;
+}
+
+
+.formAddToPortfolio {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    margin: 10px;
+  }
+}
+
+.coin-form {
+  display: flex;
+  flex-flow: column;
+  max-width: 600px;
+
+  .form-row {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    // min-width: 500px;
+
+    .data-picker {
+      width: 100px;
+    }
+  }
+
+  p {
+    display: flex;
+    min-width: 100px;
   }
 }
 
