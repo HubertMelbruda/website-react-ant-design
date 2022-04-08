@@ -20,10 +20,10 @@ function App() {
         <Content className="page-container">
           <Routes>
             <Route exact path="/dashboard" element={<AppDashboard />} />
-            <Route exact path="/prices" element={<AppPrices/>} />
-            <Route exact path="/wallet" element={<AppWallet />} />
-            <Route exact path="/portfolio" element={<AppPortfolio />} />
-            <Route exact path="/calendar" element={<AppCalendar />} />
+            <Route path="/prices" element={<AppPrices/>} />
+            <Route path="/wallet" element={<AppWallet />} />
+            <Route path="/portfolio" element={<AppPortfolio />} />
+            <Route path="/calendar" element={<AppCalendar />} />
             <Route path="/notes" element={<AppNotes />} />
             <Route path="/userprofile" element={<AppProfile />} />
           </Routes>

@@ -6,19 +6,32 @@
   box-sizing: border-box;
 }
 
-.mainLayout   {
+#root {
   display: flex;
-  justify-content: center;
-  background: #f8f8f8;
-  padding: 0 150px;
-  height: auto;
-  line-height: 1.6;
+  flex-direction: column;
+  height: 100%;
 }
 
+.mainLayout   {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 auto;
+  background: #f8f8f8;
+  padding: 0 150px;
+  
+
+  .page-container {
+   display: flex;
+   justify-content: center;
+   flex: 1 0 auto;
+  }
+}
 
 .footer {
   background-color: #f8f8f8;
   border-top: 1px solid rgb(54, 54, 54);
+  flex-shrink: 0;
 }
 
 .header {
@@ -32,8 +45,7 @@
 }
 
 .page-container {
-  display: flex;
-  justify-content: center;
+  
 }
 
 .coin-name {
@@ -55,6 +67,7 @@
 
 .card {
   width: 250px;
+  max-height: 200px;
   margin: 10px;
 }
 
@@ -62,33 +75,47 @@
 .formAddToPortfolio {
   display: flex;
   flex-flow: column;
-  justify-content: center;
   align-items: center;
-
-  p {
+  max-width: 800px;
+  
+  .form-header {
+    display: flex;
+    min-width: 120px;
     margin: 10px;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  .form-button {
+    margin: 10px
   }
 }
 
 .coin-form {
   display: flex;
-  flex-flow: column;
-  max-width: 600px;
+  flex-flow: row wrap;
+  
+  
+  .input {
+    min-width: 150px;
+  }
 
   .form-row {
     display: flex;
-    justify-content: center;
-    padding: 10px;
-    // min-width: 500px;
+    justify-content: space-between;
+    padding: 5px;
 
-    .data-picker {
-      width: 100px;
+    .date-picker {
+      min-width: 203px;
+    }
+
+    p {
+      display: flex;
+      min-width: 120px;
+      margin: 10px;
     }
   }
-
-  p {
-    display: flex;
-    min-width: 100px;
-  }
 }
+
+
 

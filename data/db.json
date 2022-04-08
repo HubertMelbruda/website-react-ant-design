@@ -1,0 +1,15 @@
+{
+  "portfolio": [
+    {
+      "name": "Ethereum",
+      "quantity": "0.44",
+      "price": "3590.15",
+      "date": "2022-04-13",
+      "id": 4
+    },
+    {
+      "quantity": "0.44",
+      "id": 5
+    }
+  ]
+}
