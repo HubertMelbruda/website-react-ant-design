@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Input, DatePicker, Button, InputNumber } from "antd";
+import { Input, DatePicker, Button } from "antd";
 
 const AddToPortfolio = () => {
   const [coinName, setCoinName] = useState();
@@ -24,15 +24,15 @@ const AddToPortfolio = () => {
     setCoinDate(dateString);
   };
 
-  function adjustPrice(price) {
-    const newPrice = price.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 1,
-      maximumFractionDigits: 8,
-    });
-    return newPrice;
-  }
+  // function adjustPrice(price) {
+  //   const newPrice = price.toLocaleString("en-US", {
+  //     style: "currency",
+  //     currency: "USD",
+  //     minimumFractionDigits: 1,
+  //     maximumFractionDigits: 8,
+  //   });
+  //   return newPrice;
+  // }
 
   const handleSubmit = () => {
     const coinData = {
@@ -47,8 +47,13 @@ const AddToPortfolio = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(coinData),
     }).then(() => {
-      // po dodaniu bloga od razu cofa nas na stronę główna
+      
     });
+
+    setCoinName("")
+    setCoinQuantity("")
+    setCoinPrice("")
+    setCoinDate("")
   };
 
   return (
@@ -99,16 +104,11 @@ const AddToPortfolio = () => {
             onChange={handleDateInput}
           />
         </div>
-        <div className="form-row">
-          <p>Input Number </p>
-          <InputNumber
-            
-          />
-        </div>
       </form>
       <Button type="primary" className="form-button" onClick={handleSubmit}>
-        Primary
+        Add to portfolio
       </Button>
+      
     </div>
   );
 };

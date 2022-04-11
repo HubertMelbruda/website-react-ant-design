@@ -3,7 +3,7 @@ import { Table, Image } from "antd";
 import useFetch from "../components/useFetch";
 
 const CoinTable = () => {
-  const { data, isLoading, error } = useFetch(
+  const { data } = useFetch(
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&page=1&sparkline=false"
   );
 
@@ -75,11 +75,6 @@ const CoinTable = () => {
     return newPrice;
   }
 
-  function changeColor(value) {
-    if(value >= 0) {
-
-    }
-  }
 
   const coinDetails = [];
 

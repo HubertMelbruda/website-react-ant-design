@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 
 const useFetch = url => {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(url)
@@ -15,20 +15,21 @@ const useFetch = url => {
       })
       .then(data => {
         setData(data);
-        setIsLoading(false);
-        setError(null);
+        // setIsLoading(false);
+        // setError(null);
       })
       .catch(err => {
         if (err === "AbortError") {
           console.log("Fetch aborted");
         } else {
-          setError(err.message);
-          setIsLoading(false);
+          // setError(err.message);
+          // setIsLoading(false);
         }
       });
   }, [url]);
 
-  return { data, isLoading, error };
+  return { data };
+  // return { data, isLoading, error };
 };
 
 export default useFetch;
