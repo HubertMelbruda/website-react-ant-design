@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "antd";
 
 const PortfolioDetailsCard = props => {
-  const { id, name, quantity, price } = props;
+  const { name, quantity} = props;
 
   return (
     <div className="page-container">
@@ -10,7 +10,7 @@ const PortfolioDetailsCard = props => {
         <Card
           title={name}
           size="small"
-          extra={"Quantity: 45000"}
+          extra={`Quantity: ${quantity}`}
           className="card"
         >
           <div className="card-details">
