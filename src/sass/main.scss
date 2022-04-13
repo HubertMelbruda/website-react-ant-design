@@ -1,0 +1,133 @@
+@import '~antd/dist/antd.less';
+
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mainLayout   {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  background: #f8f8f8;
+  padding: 0 150px;
+  
+  .page-container {
+   display: flex;
+   flex-flow: column;
+   align-items: center;
+   flex: 1 0 auto;
+  }
+}
+
+.footer {
+  background-color: #f8f8f8;
+  border-top: 1px solid rgb(54, 54, 54);
+  flex-shrink: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f8;
+
+  ul {
+    background: #f8f8f8;
+  }
+}
+
+
+.coin-name {
+  font-weight: 700;
+}
+
+.symbol {
+  text-transform: uppercase;
+}
+
+.percentage24hColorGreen {
+  color:rgb(37, 216, 37);
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  min-width: 250px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+
+.portfolio {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 800px;
+  
+  .portfolio__header {
+    display: flex;
+    min-width: 120px;
+    margin: 10px;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  .form-button {
+    margin: 10px
+  }
+
+  .portfolio__form {
+    display: flex;
+    flex-flow: row wrap;
+  
+    .portfolio-element {
+      display: flex;
+      padding: 5px;
+
+      .portfolio-element__input-name {
+        min-width: 120px;
+        margin: 10px;
+      }
+  
+      .portfolio-element__input {
+        min-width: 200px;
+      }
+  
+      .portfolio-element__date-picker {
+        min-width: 200px;
+      }
+    }
+  }
+}
+
+.portfolio-card {
+  display: flex; 
+  justify-content: center;
+  flex-direction: column;
+
+  .portfolio-card__details {
+    display: flex;
+    flex-wrap: wrap;
+
+    .portfolio-card__item {
+      min-width: 150px;
+    }
+  }
+}
+
+
+

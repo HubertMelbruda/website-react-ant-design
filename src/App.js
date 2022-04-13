@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "antd";
 import "./App.less";
+import "./css/main.css";
 import AppHeader from "./components/header";
 import AppDashboard from "./pages/dashboard";
 import AppWallet from "./pages/wallet";
