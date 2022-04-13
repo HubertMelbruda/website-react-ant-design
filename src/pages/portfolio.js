@@ -2,27 +2,50 @@ import React from "react";
 import PortfolioDetailsCard from "../components/portfolioDetailsCard ";
 import useFetch from "../components/useFetch";
 import { useState } from "react";
-import { Divider, Button, DatePicker, Input } from "antd";
+import {
+  Divider,
+  Button,
+  DatePicker,
+  Input,
+  InputNumber,
+  AutoComplete,
+} from "antd";
 
 const AppPortfolio = () => {
+  const coinsApi =
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&page=1&sparkline=false";
+
   const { data: portfolio } = useFetch("http://localhost:8000/portfolio/");
+  const { data: coinData } = useFetch(coinsApi);
+
   const [coinName, setCoinName] = useState("");
   const [coinQuantity, setCoinQuantity] = useState(0);
   const [coinPrice, setCoinPrice] = useState(0);
   const [coinDate, setCoinDate] = useState();
-  const [coin, setCoin] = useState(portfolio);
-  const [isCoinSend, setIsCoinSend] = useState(false);
 
-  const handleInputName = e => {
-    setCoinName(e.target.value);
+  const [coins, setCoins] = useState(portfolio);
+
+  const [options, setOptions] = useState([]);
+
+  // ===== Auto Complete Input ====
+  const coinsNames = coinData.map(coin => {
+    return { label: coin.name, value: coin.name };
+  });
+
+  const handleSearch = value => {
+    setOptions(coinsNames);
   };
 
-  const handleInputQuantity = e => {
-    setCoinQuantity(e.target.value);
+  const onSelect = value => {
+    setCoinName(value);
   };
 
-  const handleInputPrice = e => {
-    setCoinPrice(e.target.value);
+  const handleInputQuantity = value => {
+    setCoinQuantity(value);
+  };
+
+  const handleInputPrice = value => {
+    setCoinPrice(value);
   };
 
   const handleDateInput = (value, dateString) => {
@@ -37,7 +60,11 @@ const AppPortfolio = () => {
       date: coinDate,
     };
 
-    if (coinData.name === "" || coinData.quantity === 0) {
+    if (
+      coinData.name === "" ||
+      coinData.quantity === 0.0 ||
+      coinData.price === 0.0
+    ) {
       alert("Please fill up all required fields");
     } else {
       fetch("http://localhost:8000/portfolio/", {
@@ -47,8 +74,8 @@ const AppPortfolio = () => {
       });
 
       setCoinName("");
-      setCoinQuantity(0);
-      setCoinPrice(0);
+      setCoinQuantity();
+      setCoinPrice();
       setCoinDate("");
     }
   };
@@ -62,7 +89,7 @@ const AppPortfolio = () => {
         return response.json();
       })
       .then(data => {
-        setCoin(data);
+        setCoins(data);
       })
       .catch(err => {
         if (err === "AbortError") {
@@ -71,7 +98,19 @@ const AppPortfolio = () => {
       });
   };
 
-  const portfolioDetailsCard = coin.map(coin => {
+  // const portfolioDetailsCard = coin.map(coin => {
+  //   return (
+  //     <PortfolioDetailsCard
+  //       key={coin.id}
+  //       id={coin.id}
+  //       name={coin.name}
+  //       quantity={coin.quantity}
+  //       price={coin.price}
+  //     />
+  //   );
+  // });
+
+  const portfolioDetailsCard = coins.map(coin => {
     return (
       <PortfolioDetailsCard
         key={coin.id}
@@ -85,49 +124,49 @@ const AppPortfolio = () => {
 
   return (
     <div className="page-container">
-      <div className="formAddToPortfolio">
-        <p className="form-header">Add Coin to your portfolio</p>
-        <form className="coin-form">
-          <div className="form-row">
-            <p>Coin name</p>
-            <Input
+      <div className="portfolio">
+        <p className="portfolio__header">Add Coin to your portfolio</p>
+        <form className="portfolio__form">
+          <div className="portfolio-element">
+            <p className="portfolio-element__input-name">Coin name</p>
+            <AutoComplete
               id="coin-name"
               name="name"
-              className="input"
+              className="portfolio-element__input"
               placeholder="Coin"
               allowClear={true}
               value={coinName}
-              onChange={handleInputName}
+              options={options}
+              onSelect={onSelect}
+              onSearch={handleSearch}
             />
           </div>
-          <div className="form-row">
-            <p>Quantity</p>
-            <Input
+          <div className="portfolio-element">
+            <p className="portfolio-element__input-name">Quantity</p>
+            <InputNumber
               id="quantity"
               name="quantity"
-              className="input"
-              placeholder="e.g 0.44"
-              allowClear={true}
+              className="portfolio-element__input"
+              step="0.0001"
               value={coinQuantity}
               onChange={handleInputQuantity}
             />
           </div>
-          <div className="form-row">
-            <p>Price</p>
-            <Input
+          <div className="portfolio-element">
+            <p className="portfolio-element__input-name">Price $</p>
+            <InputNumber
               id="price"
               name="price"
-              className="input"
-              placeholder="e.g 125.44"
-              allowClear={true}
+              className="portfolio-element__input"
+              step="0.0001"
               value={coinPrice}
               onChange={handleInputPrice}
             />
           </div>
-          <div className="form-row">
-            <p>Date of purchase</p>
+          <div className="portfolio-element">
+            <p className="portfolio-element__input-name">Date of purchase</p>
             <DatePicker
-              className="date-picker"
+              className="portfolio-element__date-picker"
               name="date"
               onChange={handleDateInput}
             />
@@ -138,7 +177,7 @@ const AppPortfolio = () => {
         </Button>
       </div>
       <Divider className="divider">Portfolio</Divider>
-      <div className="portfolio-container"></div>
+
       <Button type="primary" className="form-button" onClick={handleRefreshBtn}>
         Refresh
       </Button>

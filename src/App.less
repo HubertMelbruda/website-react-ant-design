@@ -70,13 +70,13 @@
 }
 
 
-.formAddToPortfolio {
+.portfolio {
   display: flex;
   flex-flow: column;
   align-items: center;
   max-width: 800px;
   
-  .form-header {
+  .portfolio__header {
     display: flex;
     min-width: 120px;
     margin: 10px;
@@ -87,44 +87,41 @@
   .form-button {
     margin: 10px
   }
-}
 
-.coin-form {
-  display: flex;
-  flex-flow: row wrap;
-  
-  
-  .input {
-    min-width: 150px;
-  }
-
-  .form-row {
+  .portfolio__form {
     display: flex;
-    justify-content: space-between;
-    padding: 5px;
-
-    .date-picker {
-      min-width: 203px;
-    }
-
-    p {
+    flex-flow: row wrap;
+  
+    .portfolio-element {
       display: flex;
-      min-width: 120px;
-      margin: 10px;
+      padding: 5px;
+
+      .portfolio-element__input-name {
+        min-width: 120px;
+        margin: 10px;
+      }
+  
+      .portfolio-element__input {
+        min-width: 200px;
+      }
+  
+      .portfolio-element__date-picker {
+        min-width: 200px;
+      }
     }
   }
 }
 
-.portfolio-card-container {
+.portfolio-card {
   display: flex; 
   justify-content: center;
   flex-direction: column;
 
-  .card-details {
+  .portfolio-card__details {
     display: flex;
     flex-wrap: wrap;
 
-    p {
+    .portfolio-card__item {
       min-width: 150px;
     }
   }

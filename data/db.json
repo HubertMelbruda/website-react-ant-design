@@ -2,24 +2,42 @@
   "portfolio": [
     {
       "name": "Ethereum",
-      "quantity": "0.44",
-      "price": "2000.12",
-      "date": "2022-04-14",
+      "quantity": 1,
+      "price": 1000,
       "id": 1
     },
     {
-      "name": "Ethereum",
-      "quantity": "1",
-      "price": "3000.12",
-      "date": "2022-04-14",
-      "id": 2
+      "name": "Bitcoin",
+      "quantity": 0.0001,
+      "price": 0.0001,
+      "id": 3
     },
     {
-      "name": "Ethereum",
-      "quantity": "2",
-      "price": "1722.02",
-      "date": "2022-04-14",
-      "id": 3
+      "name": "Tether",
+      "quantity": 0.0003,
+      "price": 0.0004,
+      "id": 4
+    },
+    {
+      "name": "XRP",
+      "quantity": 2500.1,
+      "price": 1.48,
+      "date": "",
+      "id": 5
+    },
+    {
+      "name": "Solana",
+      "quantity": 25,
+      "price": 125.5,
+      "date": "",
+      "id": 6
+    },
+    {
+      "name": "Cardano",
+      "quantity": 150,
+      "price": 1.25,
+      "date": "",
+      "id": 7
     }
   ]
 }
