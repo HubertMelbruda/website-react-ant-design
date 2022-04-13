@@ -6,7 +6,6 @@ import {
   Divider,
   Button,
   DatePicker,
-  Input,
   InputNumber,
   AutoComplete,
 } from "antd";
@@ -40,15 +39,15 @@ const AppPortfolio = () => {
     setCoinName(value);
   };
 
-  const handleInputQuantity = value => {
+  const handleCoinQuantity = value => {
     setCoinQuantity(value);
   };
 
-  const handleInputPrice = value => {
+  const handleCoinPrice = value => {
     setCoinPrice(value);
   };
 
-  const handleDateInput = (value, dateString) => {
+  const handleCoinDate = (value, dateString) => {
     setCoinDate(dateString);
   };
 
@@ -149,7 +148,7 @@ const AppPortfolio = () => {
               className="portfolio-element__input"
               step="0.0001"
               value={coinQuantity}
-              onChange={handleInputQuantity}
+              onChange={handleCoinQuantity}
             />
           </div>
           <div className="portfolio-element">
@@ -160,7 +159,7 @@ const AppPortfolio = () => {
               className="portfolio-element__input"
               step="0.0001"
               value={coinPrice}
-              onChange={handleInputPrice}
+              onChange={handleCoinPrice}
             />
           </div>
           <div className="portfolio-element">
@@ -168,7 +167,7 @@ const AppPortfolio = () => {
             <DatePicker
               className="portfolio-element__date-picker"
               name="date"
-              onChange={handleDateInput}
+              onChange={handleCoinDate}
             />
           </div>
         </form>
